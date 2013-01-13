@@ -1,20 +1,3 @@
-function printUser(){
-	var name = $("#picsearch").val();
-	//add the people
-	//clear the field
-	$('#picsearch').val("");
-	var indexInAllFriends = $.inArray(name, getFriendNames());
-	var indexInSearchedFriends = $.inArray(name, friendsToSearch);
-	
-	if(indexInAllFriends != -1 && indexInSearchedFriends == -1){
-		var id = getFriendId(name);
-		var lihtml = "<li onclick= \"callRemove(this.id)\" class = \"removable\" id=\"" + id + "\">"+ name + "</li>";
-		$('#list').append(lihtml);
-		friendsToSearch.push(name);
-		getPhotos(friendsToSearch);
-	}
-}
-
 function displayUser(){
 	var name = $("#picsearch").val();
 	//add the people
@@ -31,26 +14,27 @@ function displayUser(){
 		$('#list-prof').append(lihtml);
 		friendsToSearch.push(name);
 		getPhotos(friendsToSearch);
+		$(".photos").remove();
 	}
 	
 }
 	
 function callRemove(id){
-	
 	var friendName = getFriendName(id);
 	$("#" + id).remove();
 	for(var i=0; i<friendsToSearch.length; i++){
 		if(friendsToSearch[i]==friendName){
 			friendsToSearch.splice(i, 1);
 		}
-	}	
+	}
+	getPhotos(friendsToSearch);	
 }
 
 function display(photoLinkArray){
+	console.log("Number of photos received:" + photoLinkArray.length);
 	for (var i=0; i < photoLinkArray.length; i++) {
       var url = photoLinkArray[i];
-      var lihtml ='<li><img src="' + url + '" alt="" border="0" /></li>';
-      
+      var lihtml ='<li><img class="photos" src="' + url + '" alt="" border="0" /></li>';
       console.log(lihtml);
 	$('#photoList').append(lihtml);
 	}
