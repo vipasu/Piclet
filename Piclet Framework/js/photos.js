@@ -76,7 +76,11 @@ function getPhotos(userList){
 	for (var i = 0; i < userList.length - 1; i++){
 		loadPhotos(getFriendId(userList[i]), false);
 	}
-	loadPhotos(getFriendId(userList[userList.length - 1]),true);
+	if (userList.length > 0){
+		loadPhotos(getFriendId(userList[userList.length - 1]),true);
+	}else{
+		displayPhotos();
+	}
 }
 
 /*function display(links){

@@ -13,8 +13,8 @@ function displayUser(){
 		//console.log(lihtml);
 		$('#list-prof').append(lihtml);
 		friendsToSearch.push(name);
-		getPhotos(friendsToSearch);
 		$(".photos").remove();
+		getPhotos(friendsToSearch);
 	}
 	
 }
@@ -34,8 +34,8 @@ function display(photoLinkArray){
 	console.log("Number of photos received:" + photoLinkArray.length);
 	for (var i=0; i < photoLinkArray.length; i++) {
       var url = photoLinkArray[i];
-      var lihtml ='<li><img class="photos" src="' + url + '" alt="" border="0" /></li>';
-      console.log(lihtml);
+      var lihtml ='<li class = "photos"><img src="' + url + '" alt="" border="0" /></li>';
+      //console.log(lihtml);
 	$('#photoList').append(lihtml);
 	}
 }
