@@ -5,7 +5,8 @@ function printUser()
 	//add the people
 	//clear the field
 	$('#picsearch').val("");
-	$('#tosearch').append($.inArray(name, getFriends());
+	var index = $.inArray(name, getFriendNames());
+	//$('#tosearch').append(index);
 	if(index != -1){
 		$('#tosearch').append(name +"<br>");
 	}
