@@ -17,25 +17,44 @@ function loadFriends() {
 }
 
 var __friendData = {};
+var __idData     = {};
 
 function addFriend(name, id){
 	__friendData[name] = id;
+	__idData[id]       = name;
 }
 
-function getFriends(){
-	return __friendData;	
-}
 
 function getFriendNames(){
 	var i          = 0;
 	var friends    = [];
 	
-	for (friend in getFriends()){
+	for (friend in __friendData){
 		friends[i] = friend;
 		i++;
 	}
 	
 	return friends;
+}
+
+function getFriendIds(){
+	var i          = 0;
+	var friends    = [];
+	
+	for (friend in __idData){
+		friends[i] = friend;
+		i++;
+	}
+	
+	return friends;
+}
+
+function getFriendName(id){
+	return __idData[id];
+}
+
+function getFriendId(name){
+	return __friendData[name];
 }
 
 function setTypeahead(){
