@@ -1,10 +1,20 @@
+var __me;
+
+function me(){
+	return __me;
+}
+
+function loadMe( me ){
+	__me = me;
+	loadFriends();
+}
+
 function loginSuccessful(){
 	console.log('Welcome!  Fetching your information.... ');
 	FB.api('/me', function(response) {
 		console.log('Good to see you, ' + response.name + '.');
+		loadMe(response);
 	});
-	
-	setFriends(loadFriends());
 }
 
 function login() {
