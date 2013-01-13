@@ -4,7 +4,7 @@
 
 
 function loadWheel() {
-     var img = '<img id="loader" src="ajax-loader.gif" style= "max-height: 20px; margin-left: 10px"/>';
+     var img = '<img id="loader" src="ajax-loader.gif"/>';
      $("#searchrow").append(img);
 }
 
