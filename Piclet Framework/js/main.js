@@ -13,13 +13,13 @@ function displayUserNavBar(){
 		//console.log(lihtml);
 		$('#list-prof').append(lihtml);
 		friendsToSearch.push(name);
-		$(".photos").remove();
+		//$(".photos").remove();
 		getPhotos(friendsToSearch);
 	}
 }
 	
 function callRemoveNavBar(id){
-	$(".photos").remove();
+	//$(".photos").remove();
 	var friendName = getFriendName(id);
 	$("#" + id).remove();
 	for(var i=0; i<friendsToSearch.length; i++){
