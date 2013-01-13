@@ -33,7 +33,7 @@ window.loadPhotos = function(id) {
     	photoArray.length          = photos.length;
     	photoArray.comments_length = comments.length;
     	photoArray.userId          = id;
-		alert("Found " + photoArray.length + " Photos And " + photoArray.comments_length + " Comments For " + getFriendName(photoArray.userId)+".");
+		//alert("Found " + photoArray.length + " Photos And " + photoArray.comments_length + " Comments For " + getFriendName(photoArray.userId)+".");
   });
 
 };
