@@ -12,7 +12,7 @@
 var photoData  = {};
 photoData.users = {};
 var pq;
-var __countdown;
+var __countdown = 0;
 
 function extractSrc(photoObjects){
 	var src = [];
@@ -85,9 +85,13 @@ function display(){
 }
 
 function getPhotos(userList){
-	/*while(__countdown != 0){
 	
-	}*/
+	if (__countdown != 0){
+		setTimeout(function(){getPhotos(userList)},3000);
+		return;
+	}
+	
+	console.log("Getting New Photos");
 	pq = new buckets.PriorityQueue(compareImportance);
 	__countdown = userList.length;
 	for (var i = 0; i < userList.length; i++){
