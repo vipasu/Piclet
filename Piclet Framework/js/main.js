@@ -1,6 +1,4 @@
-
-function printUser()
-{
+function printUser(){
 	var name = $("#picsearch").val();
 	//add the people
 	//clear the field
@@ -9,18 +7,18 @@ function printUser()
 	var indexInSearchedFriends = $.inArray(name, friendsToSearch);
 	
 	if(indexInAllFriends != -1 && indexInSearchedFriends == -1){
-		var lihtml = "<li onclick= \"callRemove(this.id)\" class = \"removable\" id=\"" + name + "\">"+ name + "</li>";
+		var id = getFriendId(name);
+		var lihtml = "<li onclick= \"callRemove(this.id)\" class = \"removable\" id=\"" + id + "\">"+ name + "</li>";
 		$('#list').append(lihtml);
 		friendsToSearch.push(name);
+		getPhotos(friendsToSearch);
 	}
 }
 
 function callRemove(id){
-	var name = '#' + id;
-	alert(name);
-	$(".removable").remove();	
+	var friendName = getFriendName(id);
+	$("#" + id).remove();	
 }
-
 
 function printArray(){
 	for(var s in friendsToSearch){
@@ -35,4 +33,3 @@ $('#idform').submit(function () {
 });
 
 var friendsToSearch = [];
-
