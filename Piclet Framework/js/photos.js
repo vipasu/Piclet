@@ -8,6 +8,7 @@
 //Allows access to friends photos and albums
              
 // Get your friend's albums, string friendID comes from the search. Can I set friendID = 'me' as default somehow?
+
 var photoData  = {};
 photoData.users = {};
 var pq;
@@ -24,6 +25,15 @@ function extractSrc(photoObjects){
 function loadPhotos(id, isLast) {
 
 	console.log("Loading Photos..");
+	if(id in photoData.users && photoData.users[id].length > 0){
+		console.log("User " + getFriendName(id)+" Already Loaded.");
+		enqueueArray(photoData.users[id], pq);
+		__countdown--;
+		if (__countdown == 0){
+    		display();
+    	}
+		return;
+	}
   	//FB.api({method: 'fql.query', query: 'SELECT object_id,src_big,like_info,comment_info FROM photo WHERE object_id IN (SELECT object_id FROM photo_tag WHERE subject = ' + id + ') OR owner = '+ id}, function(response) {
     FB.api('/fql', {q:{"query1" :  
     		"SELECT object_id,src_big,like_info,comment_info FROM photo WHERE (object_id IN (SELECT object_id FROM photo_tag WHERE subject = " + id + ")) OR (owner = " + id + ") AND like_info.like_count > 0 LIMIT 3000",
@@ -75,6 +85,9 @@ function display(){
 }
 
 function getPhotos(userList){
+	/*while(__countdown != 0){
+	
+	}*/
 	pq = new buckets.PriorityQueue(compareImportance);
 	__countdown = userList.length;
 	for (var i = 0; i < userList.length; i++){

@@ -41,8 +41,8 @@ function displayPhotos(photoLinkArray){
 	  $('#photoList').append(lihtml);
 	  //$("#container").width($("#container").width() + document.getElementById("__image"+i).clientWidth + 100);
 	}
-	if ($("#container").width() < window.Width){
-		$("#container").width(window.Width);
+	if ($("#container").width() < $(window).width()){
+		$("#container").width($(window).width());
 	}
 }
 
