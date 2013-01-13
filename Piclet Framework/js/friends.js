@@ -11,7 +11,7 @@ function loadFriends() {
 		}
 		
 		setTypeahead();
-		loadPhotos(me().id);
+		//getPhotos(["Brad Girardeau","Ben Girardeau"]);
 			
 	});
 
