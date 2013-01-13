@@ -16,7 +16,6 @@ function displayUserNavBar(){
 		$(".photos").remove();
 		getPhotos(friendsToSearch);
 	}
-	
 }
 	
 function callRemoveNavBar(id){
@@ -44,6 +43,7 @@ function displayPhotos(photoLinkArray){
 	if ($("#container").width() < $(window).width()){
 		$("#container").width($(window).width());
 	}
+	removeWheel();
 }
 
 function printArray(){

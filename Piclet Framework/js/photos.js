@@ -92,6 +92,7 @@ function getPhotos(userList){
 	}
 	
 	console.log("Getting New Photos");
+	loadWheel();
 	pq = new buckets.PriorityQueue(compareImportance);
 	__countdown = userList.length;
 	for (var i = 0; i < userList.length; i++){
