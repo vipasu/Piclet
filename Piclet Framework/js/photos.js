@@ -17,7 +17,7 @@ window.loadPhotos = function(id) {
       photoArray[i] = response[i];
       end++;
     }
-	alert("Found " + photoArray.length + " Photos.");
+	//alert("Found " + photoArray.length + " Photos.");
   });
 
 };

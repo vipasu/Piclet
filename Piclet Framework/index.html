@@ -10,18 +10,29 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        
-        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="css/bootstrap-responsive.css"/>
         <link href="css/mycss.css" rel="stylesheet" type="text/css">
         
         <style>
             body {
-                padding-top: 60px;
-                padding-bottom: 40px;
+                 padding-top:60px;
+                 padding-bottom:40px;  
             }
             
-           
+            #photoList{
+                list-style:none;
+            }
+            
+            #single_photo{
+                padding-left: 50px;
+                padding-right: 50px;
+            }
+            
+            #centralcontainer{
+                padding top: 100px;
+            }    
+       
         </style>
 
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
@@ -50,7 +61,7 @@
             </div>
         </div>
 
-        <div class="container">
+        <div class="container" id= "centralcontainer">
 
             <!-- Example row of columns -->
             <div class="row">
@@ -59,11 +70,16 @@
                     <p>The new and awesome way of looking at photos of friends</p>
                    <form name= "searchform" id= "idform" class="form-search">
                         <p><input type="text" id="picsearch" name= "pic" class="input-large search-query" placeholder="Search" autocomplete="off" autocorrect="off" data-provide="typeahead"></p>
-                        <p><input class="btn" type="submit" value= "Search"/>
+                        <p><input class="btn .hidden-desktop" type="submit" value= "Search"/ style ="visibility: hidden;">
                     </form>
-                    <ul id= "list">List of Friends. Click to discount</ul>
+                    <ul id= "list">List of Friends. Click to Remove</ul>
                 </div>
-                
+                <div class= "imageHolder clearfix">
+                    <ul id="photoList">
+                        <li id="single_photo">
+                        </li>
+                    </ul>
+                </div>
                <!-- <div class="span4">
                     <h2>Heading</h2>
                     <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>

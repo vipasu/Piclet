@@ -11,7 +11,7 @@ function printUser(){
 		var lihtml = "<li onclick= \"callRemove(this.id)\" class = \"removable\" id=\"" + id + "\">"+ name + "</li>";
 		$('#list').append(lihtml);
 		friendsToSearch.push(name);
-		getPhotos(friendsToSearch);
+		//getPhotos(friendsToSearch);
 	}
 }
 
