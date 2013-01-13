@@ -36,9 +36,9 @@ function ParseComment(comment){
 function importanceFactor(photoObject){
     var weight = 0;
     weight += (1.33*getLikeCount(photoObject) + getCommentCount(photoObject));
-    for (index in photoObject.comments){
+    /*for (index in photoObject.comments){
         weight += ParseComment(photoObject.comments[index]);
-    }
+    }*/
     return weight;
 }
 
