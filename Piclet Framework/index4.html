@@ -12,27 +12,28 @@
          <link rel="stylesheet" href="css/bootstrap.css"/>
          <link href="css/theircss.css" rel="stylesheet" type="text/css" media="screen" />
          <link href='http://fonts.googleapis.com/css?family=Lato:100,400,900' rel='stylesheet' type='text/css'><link href="css/mycss.css" rel="stylesheet" type="text/css">
-        
-        <style>
+         <style>
          body {
                  font-family: 'Lato', sans-serif;
                  font-weight: 400;
-            }
             
-         
+#top { position: absolute; top: 20px; left: 20px; width: 350px; height: 500px;  margin-top: 30px; z-index: 1; }
+body { background-color: #121212; margin: 30px 0 0; } 
+#container { height:500px; background-color:#fff; float:left; margin-right:0; margin-bottom:0; margin-left:0; padding:20px 0 20px 320px; position: absolute; z-index: 0; }
+#container img { margin-right:13px; }
+#container ul li { float:left; height:500px; margin-right:12px; }
+#container ul { list-style-type:none; display:inline; padding:0; }
         </style>
-
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         <script src="js/photos.js"></script>
         <script src="js/friends.js"></script>
         <script src="js/login.js"></script>
         <script type="text/javascript" src="js/vendor/hscroll.js"></script>
-      
     </head>
     <body>
         <div id="fb-root"></div>
         <div id="top" style="float:left; width:200px; margin-right: 100px ">
-                <a class="brand" id="brandbold" href="#">PICLET</a>
+                <p class="brand" id="brandbold" href="#">PICLET</a>
                 <h2>Piclify Here!</h2>
                 <p>The new and awesome way of looking at photos of friends</p>
                 <form name= "searchform" id= "idform" class="form-search">    
@@ -42,7 +43,7 @@
                 <ul id= "list">List of Friends. Click to Remove</ul>
                 <ul id= "list-prof"class= "media-list"></ul>   
         </div>     
-            <div id="container" style="float: right; width: 100000px;">
+            <div id="container" style="float: right; width: 600000px;">
     <ul id= "photoList">
       <!--<li><a href="#" id="a1"><img src="https://sphotos-b.xx.fbcdn.net/hphotos-snc7/394928_10151177145772680_1112428616_n.jpg" height = "500px" alt="" border="0" /></a></li>
       <li><a href="#" id="a2"><img src="https://sphotos-b.xx.fbcdn.net/hphotos-ash4/395133_10150528733807154_23895178_n.jpg" height = "500px" alt="" border="0" /></a></li>
@@ -50,22 +51,15 @@
       
    </ul>
    </div>
-   
-                
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.3.min.js"><\/script>')</script>
-       
         <script src="js/vendor/bootstrap.min.js"></script>
         <script src="js/friends.js"></script>
         <script src="js/buckets.js"></script>
         <script src="js/organize.js"></script>
         <script src="js/importance.js"></script>
-
-
         <script src="js/photos.js"></script>
-        
         <script src="js/main.js"></script>
-
         <script>
             var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
             (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
