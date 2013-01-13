@@ -21,8 +21,11 @@
         <link rel="stylesheet" href="css/main.css">
 
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <script src="js/friends.js"></script>
+		<script src="js/login.js"></script>
     </head>
     <body>
+    	<div id="fb-root"></div>
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
@@ -50,7 +53,7 @@
                     <h2>Piclify Here!</h2>
                     <p>The new and awesome way of looking at photos of friends</p>
                    <form class="form-search">
-                        <p><input type="text" id="picsearch" class="input-large search-query"></p>
+                        <p><input type="text" id="picsearch" class="input-large search-query" data-provide="typeahead"></p>
                         <p><button type="submit" id="submitsearch" class="btn">Search</button></p>
                     </form>
                 </div>
