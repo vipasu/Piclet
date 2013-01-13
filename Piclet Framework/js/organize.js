@@ -18,15 +18,15 @@ function compareImportance(a, b){
         return 0;
 }
 
-function enqueueArray(photoArray){
-    for (photo in photoArray)
-        buckets.PriorityQueue.prototype.enqueue(photo);
+function enqueueArray(photoArray, pq){
+    for (var key in photoArray)
+        pq.enqueue(photoArry[key]);
 }
 
-function dequeueAll(){
+function dequeueAll(pq){
     var temp;
-    while (!buckets.PriorityQueue.prototype.isEmpty()){
-        temp =buckets.PriorityQueue.prototype.dequeue();
+    while (!pq.isEmpty()){
+        temp =pq.dequeue();
         console.log(temp);
     }
 }
