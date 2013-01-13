@@ -10,6 +10,9 @@ body { font-family: 'Lato', sans-serif; font-weight: 400; color:#FFFFFF; backgro
 	border-top-right-radius: 300px 60px; 
 	box-shadow:2px -2px 3px #202020 ;		
  }
+#containercontent{
+	top: 200px; left: 50px; position: absolute; max-width: 805px;
+}
 #piclify{
 	padding-top: 50px; padding-bottom: 20px;font-weight: 900; text-transform: capitalize; font-size: 40px;
 }
@@ -21,5 +24,6 @@ body { font-family: 'Lato', sans-serif; font-weight: 400; color:#FFFFFF; backgro
 .photos{ position:relative; }
 .images { padding:0px; margin:auto;}
 #loader{ position:relative ; ; margin-left: 0px}
-#first-line { top: 200px; left: 50px; position: absolute; font-weight: 900; font-size: 100px; color:#FFFFFF }
-#second-line{ top: 300px; left: 50px; position: absolute; font-weight:400; font-size: 50px; color: #700000}
+#first-line { position: relative; font-weight: 900; font-size: 100px; color:#FFFFFF; top: -30px; }
+#second-line{ position: relative; font-weight:400; font-size: 52px; color: #700000; top: 23px;}
+#descriptions{ position:relative; font-weight: 100; font-size: 20px; color: #A0A0A0; top: 40px;}

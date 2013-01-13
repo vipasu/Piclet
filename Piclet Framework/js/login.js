@@ -68,7 +68,7 @@ window.fbAsyncInit = function() {
 
 	});
 
-	FB.getLoginStatus(function(response) {
+	/*FB.getLoginStatus(function(response) {
 		if (response.status === 'connected') {
 			// connected
 			checkPermissions();
@@ -80,7 +80,7 @@ window.fbAsyncInit = function() {
 			// not_logged_in
 			displayLogin();
 		}
-	});
+	});*/
 
 	// Additional initialization code such as adding Event Listeners goes here
 	FB.Event.subscribe('auth.authResponseChange', function(response) {

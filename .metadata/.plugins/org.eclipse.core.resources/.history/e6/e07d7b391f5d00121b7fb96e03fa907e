@@ -1,0 +1,18 @@
+function loginSuccessful(){
+
+}
+
+function loadFriends() {
+	console.log('Welcome!  Fetching your information.... ');
+	FB.api('/me', function(response) {
+		console.log('Good to see you, ' + response.name + '.');
+	});
+	FB.api('/me/friends', function(response){
+		var friends = [];
+		for (var i = 0; i < response.data.length; i++){
+			friends[i] = response.data[i].name;
+		}
+		$('#picsearch').typeahead({ source : friends});
+	});
+	
+}

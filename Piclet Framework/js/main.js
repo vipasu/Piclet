@@ -16,7 +16,11 @@ function displayUserNavBar(){
 		$('#list-prof').append(lihtml);
 		friendsToSearch.push(name);
 		//$(".photos").remove();
+		$("#descriptions").css("display", "none");
+		$('#list-prof').css("display", "inline");
+		$("#list").css("display", "inline");
 		getPhotos(friendsToSearch);
+		
 	}
 }
 
@@ -36,7 +40,9 @@ function callRemoveNavBar(id){
 	}
 		getPhotos(friendsToSearch);	
 	if(friendsToSearch.length==0){
-		
+		$("#list").css("display", "none");
+		$("#descriptions").css("display", "inline");
+		$('#list-prof').css("display", "inline");
 	}
 	
 }

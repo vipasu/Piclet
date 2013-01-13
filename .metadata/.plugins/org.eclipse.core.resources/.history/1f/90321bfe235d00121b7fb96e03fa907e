@@ -1,0 +1,32 @@
+var friendData = {};
+
+// Loads friend list from Facebook and stores it in friendData
+function loadFriends() {
+	
+	FB.api('/me/friends', function(response){
+		
+		friendData = {};
+		for (var i = 0; i < response.data.length; i++){	
+			friendData[response.data[i].name] = response.data[i].id;
+		}
+		
+	});
+
+}
+
+function getFriends(){
+	var friends = [];
+	var i = 0;
+	
+	for (friend in friendData){
+		friends[i] = friend;
+		i++;
+	}
+	
+	return friends;
+	
+}
+
+function setFriends(friends){
+	$('#picsearch').typeahead({ source : friends});	
+}
