@@ -36,11 +36,47 @@ function loadPhotos(id, isLast) {
 	}
   	//FB.api({method: 'fql.query', query: 'SELECT object_id,src_big,like_info,comment_info FROM photo WHERE object_id IN (SELECT object_id FROM photo_tag WHERE subject = ' + id + ') OR owner = '+ id}, function(response) {
     FB.api('/fql', {q:{"query1" :  
-    		"SELECT object_id,src_big,like_info,comment_info FROM photo WHERE (object_id IN (SELECT object_id FROM photo_tag WHERE subject = " + id + ")) OR (owner = " + id + ") AND like_info.like_count > 0 LIMIT 3000",
-    	/*"query2" :
-    		"SELECT object_id,text FROM comment WHERE object_id IN (SELECT object_id FROM #query1)"*/}}, 
+    		"SELECT object_id,src_big,like_info,comment_info FROM photo WHERE (object_id IN (SELECT object_id FROM photo_tag WHERE subject = " + id + ")) OR (owner = " + id + ") AND like_info.like_count > 1 LIMIT 3000",
+    	"query2" :
+    		"SELECT object_id,text FROM photo_tag WHERE object_id IN (SELECT object_id FROM #query1)"}}, 
     function(response){
     	if ("data" in response){
+<<<<<<< HEAD
+		photos = response.data[0].fql_result_set;
+		//comments = response.data[1].fql_result_set;
+        tags = response.data[1].fql_result_set;
+ 		photoArray = {};
+ 		photoArray.data = {};
+    	for (var i = 0; i < photos.length; i++) {
+      		photoObject = photos[i];
+            photoObject.tags = [];
+     		photoObject.comments = [];
+      		photoObject.comment_count = photoObject.comment_info.comment_count;
+      		photoObject.like_count    = photoObject.like_info.like_count;
+      		delete photoObject.comment_info;
+      		delete photoObject.like_info;
+      		photoArray.data[photoObject.object_id] = photoObject;
+    	}
+
+    	for (var i = 0; i < tags.length; i++){
+    		var tagArr = photoArray.data[tags[i].object_id].tags;
+    		tagArr[tagArr.length] = tags[i].text;
+        }
+    	/*
+    	for (var i = 0; i < comments.length; i++){
+    		var commentOb = photoArray.data[comments[i].object_id].comments;
+    		commentOb[commentOb.length] = comments[i].text;
+    	}*/
+    	
+    	photoArray.length          = photos.length;
+    	//photoArray.comments_length = comments.length;
+    	photoArray.userId          = id;
+    	
+		enqueueArray(photoArray, pq);
+		photoData.users[id] = photoArray;
+    	console.log("Loaded " + photoArray.length + " Photos For " + getFriendName(photoArray.userId) + ".");
+    	
+=======
 		
 			photos = response.data[0].fql_result_set;
 			//comments = response.data[1].fql_result_set;
@@ -69,6 +105,7 @@ function loadPhotos(id, isLast) {
 			photoData.users[id] = photoArray;
 			console.log("Loaded " + photoArray.length + " Photos For " + getFriendName(photoArray.userId) + ".");
 
+>>>>>>> 1a9b698d6b3634f0f56851bbebc2c3128e0900eb
     	}
     	
     	__countdown--;
