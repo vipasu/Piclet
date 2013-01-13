@@ -27,3 +27,4 @@ body { font-family: 'Lato', sans-serif; font-weight: 400; color:#FFFFFF; backgro
 #first-line { position: relative; font-weight: 900; font-size: 100px; color:#FFFFFF; top: -30px; }
 #second-line{ position: relative; font-weight:400; font-size: 52px; color: #700000; top: 23px;}
 #descriptions{ position:relative; font-weight: 100; font-size: 20px; color: #A0A0A0; top: 40px;}
+#developers{ position:relative; font-weight: 100; font-size: 10px; color: #D0D0D0; top: 50px;}

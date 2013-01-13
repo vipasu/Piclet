@@ -33,7 +33,7 @@
                     </p>
                     <form name= "searchform" id= "idform" class="form-search">
                         <p id="searchrow">
-                            <input type="text" id="picsearch" name= "pic" class="input-large search-query" placeholder="Search" autocomplete="off" autocorrect="off">
+                            <input type="text" id="picsearch" name= "pic" class="input-large search-query" placeholder="Get Picklets..." autocomplete="off" autocorrect="off">
                         </p>
                         <p>
                             <input class="btn .hidden-desktop" type="submit" value= "Search"/ style ="display: none">
@@ -42,8 +42,8 @@
                         List of Friends. Click to Remove
                     </ul>
 
-                    <ul id= "list-prof"class= "media-list" style="display:none">
-                        <div id="login"></div>
+                    <div id="login"></div>
+                    <ul id= "list-prof"class= "media-list" style="visibility:hidden">
                     </ul>
                 </div>
             </div>
@@ -59,14 +59,16 @@
                     <p id= "descriptions">
                         Remember those moments that just make you smile? Too often these photos flash across our news feed and are lost within days.
                         That’s why there’s Piclet. Piclet finds your best moments again, so you can relive them and access your friends’ memories in the order they matter.
-                        </br>Piclify your life.
+                        </br></br>Piclify your life.
+                    </p>
+                    <p id= "developers">
+                       &copy;  Brad Girardeau, Charles Guan, Pranav Rajpurkar, Vincent Su
                     </p>
                 </div>
                 <ul id= "photoList">
 
                 </ul>
             </div>
-
             <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
             <script>
 				window.jQuery || document.write('<script src="js/vendor/jquery-1.8.3.min.js"><\/script>')

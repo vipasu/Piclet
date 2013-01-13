@@ -29,7 +29,7 @@ function loginSuccessful(){
 	});
 }
 
-function login() {
+/*function login() {
 	console.log('Logging in..');
 	FB.login(function(response) {
 		if (response.authResponse) {
@@ -41,20 +41,18 @@ function login() {
 			alert("You Need To Login With Facebook In Order To Use This Site. Thanks!");
 		}
 	}, {scope: 'user_photos,friends_photos'});
-}
+}*/
 
-function updateLogin(){
-//hideLogin();
 
-}
 function displayLogin(){
 	$("#login").append('<div class="fb-login-button" scope="user_photos,friends_photos">Login With Facebook</div>');
   	FB.XFBML.parse();
+  	$("#picsearch").addClass("uneditable-input");
 }
 
 function hideLogin(){
 	$("#login").empty();
-	
+	$("#picsearch").removeClass("uneditable-input");
 }
 
 window.fbAsyncInit = function() {
@@ -68,7 +66,7 @@ window.fbAsyncInit = function() {
 
 	});
 
-	/*FB.getLoginStatus(function(response) {
+	FB.getLoginStatus(function(response) {
 		if (response.status === 'connected') {
 			// connected
 			checkPermissions();
@@ -80,7 +78,7 @@ window.fbAsyncInit = function() {
 			// not_logged_in
 			displayLogin();
 		}
-	});*/
+	});
 
 	// Additional initialization code such as adding Event Listeners goes here
 	FB.Event.subscribe('auth.authResponseChange', function(response) {
