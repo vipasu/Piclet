@@ -21,13 +21,8 @@ window.loadPhotos = function(id) {
 		comments = response.data[1].fql_result_set;
     	
     	for (var i = 0; i < photos.length; i++) {
-    		photoObject = photos[i];
-      		photoObject.comments = [];
-      		photoObject.comment_count = photoObject.comment_info.comment_count;
-      		photoObject.like_count    = photoObject.like_info.like_count;
-      		delete photoObject.comment_info;
-      		delete photoObject.like_info;
-      		photoArray[photoObject.object_id] = photoObject;
+      		photoArray[photos[i].object_id]          = photos[i];
+      		photoArray[photos[i].object_id].comments = [];
     	}
     	
     	for (var i = 0; i < comments.length; i++){
@@ -38,7 +33,7 @@ window.loadPhotos = function(id) {
     	photoArray.length          = photos.length;
     	photoArray.comments_length = comments.length;
     	photoArray.userId          = id;
-		console.log("Found " + photoArray.length + " Photos And " + photoArray.comments_length + " Comments For " + getFriendName(photoArray.userId)+".");
+		//alert("Found " + photoArray.length + " Photos And " + photoArray.comments_length + " Comments For " + getFriendName(photoArray.userId)+".");
   });
 
 };

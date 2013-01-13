@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Piclet</title>
+        <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
@@ -32,6 +32,7 @@
           
             #photoList{
                 list-style:none;
+                display: inline;
             }
             
             #single_photo{
@@ -48,10 +49,10 @@
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         <script src="js/photos.js"></script>
         <script src="js/friends.js"></script>
-		<script src="js/login.js"></script>
+        <script src="js/login.js"></script>
     </head>
     <body>
-    	<div id="fb-root"></div>
+        <div id="fb-root"></div>
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
@@ -86,11 +87,13 @@
                     <ul id= "list">List of Friends. Click to Remove</ul>
                 <ul id= "list-prof"class= "media-list"></ul>   
                 </div>
-                <div class= "imageHolder clearfix">
-                    <ul id="photoList">
-                        <li id="single_photo">
-                        </li>
-                    </ul>
+                <div class= "imageHolder">
+                   <ul id = "photoList">
+                     <li><a href="#" id="a1"><img src="http://album.alexflueras.ro/uploads/images/galleries/6/nikon-25330013.jpg" alt="" border="0"></a> </li>
+                     <li><a href="#" id="a2"><img src="http://album.alexflueras.ro/uploads/images/galleries/6/nikon-25330010.jpg" alt="" border="0"></a></li>
+                     <li><a href="#" id="a3"><img src="http://album.alexflueras.ro/uploads/images/galleries/6/home.jpg" alt="" border="0"></a></li>
+                     <li><a href="#" id="a4"><img src="http://album.alexflueras.ro/uploads/images/galleries/6/reflection-rain.jpg" alt="" border="0"></a></li> 
+                  </ul>
                 </div>
                <!-- <div class="span4">
                     <h2>Heading</h2>
@@ -120,11 +123,11 @@
         <script src="js/friends.js"></script>
         <script src="js/buckets.js"></script>
         <script src="js/organize.js"></script>
-		<script src="js/importance.js"></script>
+        <script src="js/importance.js"></script>
 
 
         <script src="js/photos.js"></script>
-		
+        
         <script src="js/main.js"></script>
 
         <script>
