@@ -62,3 +62,10 @@ function setTypeahead(){
 	$('#picsearch').typeahead({ source : getFriendNames()});	
 	
 }
+
+function profilePicURL(id){
+    var base ="https://graph.facebook.com/";
+    base += id;
+    base += "picture?type=small";
+    return base;
+}
