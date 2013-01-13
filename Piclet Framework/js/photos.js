@@ -8,9 +8,10 @@
 //Allows access to friends photos and albums
              
 // Get your friend's albums, string friendID comes from the search. Can I set friendID = 'me' as default somehow?
-var photoArray  = {};
-photoArray.data = {};
+var photoData  = {};
+photoData.users = {};
 var pq;
+var __countdown;
 
 function extractSrc(photoObjects){
 	var src = [];
@@ -31,7 +32,8 @@ function loadPhotos(id, isLast) {
     function(response){
 		photos = response.data[0].fql_result_set;
 		comments = response.data[1].fql_result_set;
- 
+ 		photoArray = {};
+ 		photoArray.data = {};
     	for (var i = 0; i < photos.length; i++) {
       		photoObject = photos[i];
      		photoObject.comments = [];
@@ -52,9 +54,12 @@ function loadPhotos(id, isLast) {
     	photoArray.userId          = id;
     	
 		enqueueArray(photoArray, pq);
+		photoData.users[id] = photoArray;
     	console.log("Loaded " + photoArray.length + " Photos For " + getFriendName(photoArray.userId) + ".");
     	
-    	if (isLast){
+    	__countdown--;
+    	
+    	if (__countdown == 0){
     		display();
     	}
     	
@@ -71,14 +76,11 @@ function display(){
 
 function getPhotos(userList){
 	pq = new buckets.PriorityQueue(compareImportance);
-	photoArray      = {};
-	photoArray.data = {};
-	for (var i = 0; i < userList.length - 1; i++){
-		loadPhotos(getFriendId(userList[i]), false);
+	__countdown = userList.length;
+	for (var i = 0; i < userList.length; i++){
+		loadPhotos(getFriendId(userList[i]));
 	}
-	if (userList.length > 0){
-		loadPhotos(getFriendId(userList[userList.length - 1]),true);
-	}else{
+	if (userList.length == 0){
 		display();
 	}
 }
