@@ -39,7 +39,10 @@ function importanceFactor(photoObject){
     /*for (index in photoObject.comments){
         weight += ParseComment(photoObject.comments[index]);
     }*/
-    return weight;
+    if (photoObject.tags.length > 5)
+        return weight/6;
+    else
+        return weight;
 }
 
 /*
