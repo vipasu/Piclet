@@ -26,7 +26,7 @@ function login() {
 			// cancelled
 			alert("Cancelled.")
 		}
-	});
+	}, {scope: 'user_photos,friends_photos'});
 }
 
 window.fbAsyncInit = function() {

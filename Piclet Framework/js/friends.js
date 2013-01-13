@@ -26,16 +26,20 @@ function getFriends(){
 	return __friendData;	
 }
 
-function setTypeahead(){
-	var friendData = getFriends();
-	var friends    = [];
+function getFriendNames(){
 	var i          = 0;
-
-	for (friend in friendData){
+	var friends    = [];
+	
+	for (friend in getFriends()){
 		friends[i] = friend;
 		i++;
 	}
 	
-	$('#picsearch').typeahead({ source : friends});	
+	return friends;
+}
+
+function setTypeahead(){
+
+	$('#picsearch').typeahead({ source : getFriendNames()});	
 	
 }
