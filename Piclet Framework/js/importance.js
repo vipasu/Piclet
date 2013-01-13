@@ -20,7 +20,7 @@ function ParseComment(comment){
     var positive = ["GOOD", "GREAT", "BEAUTIFUL", "HANDSOME", "SWEET", "PRETTY", ":)"]
     //var negative = ["UGLY", "BAD", "SAD", "TERRIBLE"]
     for (phrase in positive){
-        if (comment.text.toUpperCase().find(phrase)!=-1)
+        if (comment.toUpperCase().find(phrase)!=-1)
             bonus += 1;
     }
     /*for (phrase in negative){

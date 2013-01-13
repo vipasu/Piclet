@@ -21,8 +21,6 @@ window.loadPhotos = function(id) {
 		comments = response.data[1].fql_result_set;
     	
     	for (var i = 0; i < photos.length; i++) {
-      		photoArray[photos[i].object_id]          = photos[i];
-      		photoArray[photos[i].object_id].comments = [];
       		photoObject = photos[i];
      		photoObject.comments = [];
       		photoObject.comment_count = photoObject.comment_info.comment_count;
@@ -40,6 +38,8 @@ window.loadPhotos = function(id) {
     	photoArray.length          = photos.length;
     	photoArray.comments_length = comments.length;
     	photoArray.userId          = id;
-});
+    	
+    	console.log("Loaded " + photoArray.length + " Photos For " + getFriendName(photoArray.userId) + ".");
 
+	});
 };
