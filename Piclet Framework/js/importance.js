@@ -17,7 +17,7 @@ function getCommentCount(photoObject){
 
 function ParseComment(comment){
     var bonus = 0;
-    var positive = ["GOOD", "GREAT", "BEAUTIFUL", "HANDSOME", "SWEET", "PRETTY", ":)"]
+    var positive = ["GOOD", "GREAT", "BEAUTIFUL", "HANDSOME", "SWEET", "PRETTY", ":)", "PERFECT", "LOVE"]
     //var negative = ["UGLY", "BAD", "SAD", "TERRIBLE"]
     for (phrase in positive){
         if (comment.toUpperCase().search(phrase)!=-1)
@@ -35,7 +35,7 @@ function ParseComment(comment){
 
 function importanceFactor(photoObject){
     var weight = 0;
-    weight += (getLikeCount(photoObject) + getCommentCount(photoObject));
+    weight += (1.33*getLikeCount(photoObject) + getCommentCount(photoObject));
     for (index in photoObject.comments){
         weight += ParseComment(photoObject.comments[index]);
     }
