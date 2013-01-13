@@ -2,7 +2,7 @@
 
 body { font-family: 'Lato', sans-serif; font-weight: 400;}
 body { background-color: #121212; } 
-#top { float:left; width: 350px; height: 500px; cursor: pointer;  z-index: 1; background-color:#fff; position:fixed clear:both}
+#top { float:left; width: 350px; height: 500px; cursor: pointer;  z-index: 1; background-color:#fff; position:fixed}
 #container { margin-left: 100px;  width: 600000px; background-color:#f0f;  }
 #container img { margin-right:13px; }
 #container ul li { float:left; height:500px; margin-right:12px; }
