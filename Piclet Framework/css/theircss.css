@@ -16,4 +16,6 @@ body { font-family: 'Lato', sans-serif; font-weight: 400; color:#FFFFFF; backgro
 #container ul { list-style-type:none; display:inline; padding:0; }
 .photos{ position:relative; }
 .images { padding:0px; margin:auto;}
-#loader{ position:relative ; ; margin-left: 0px"}
+#loader{ position:relative ; ; margin-left: 0px}
+#first-line { top: 200px; left: 100px; position: absolute; font-weight: 900; font-size: 100px; color:#FFFFFF }
+#second-line{ top: 300px; left: 100px; position: absolute; font-weight:400; font-size: 50px; color: #700000}

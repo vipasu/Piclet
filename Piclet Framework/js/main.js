@@ -7,6 +7,8 @@ function displayUserNavBar(){
 	var indexInSearchedFriends = $.inArray(name, friendsToSearch);
 	
 	if(indexInAllFriends != -1 && indexInSearchedFriends == -1){
+		$('#first-line').remove();
+		$('#second-line').remove();
 		var id = getFriendId(name);
 		var url = profilePicURL(id);
 		var lihtml = '<li onclick= "callRemoveNavBar(this.id)"  id="' + id + '" class="media" style= "cursor: pointer;"><a class="pull-left" href="#"><img class="media-object" data-src="holder.js/64x64" src="' + url + '" alt="64x64"></a><div class="media-body"><h4 class="media-heading">' + name + '</h4></div></li>';
@@ -16,6 +18,11 @@ function displayUserNavBar(){
 		//$(".photos").remove();
 		getPhotos(friendsToSearch);
 	}
+}
+
+function displayTitle(){
+	var lihtml = '<p id="first-line"> PICLET | The App. </p><p id="second-line">Cause Photos are intutive.</p>'
+	$('#container').append(lihtml);
 }
 	
 function callRemoveNavBar(id){
@@ -28,6 +35,7 @@ function callRemoveNavBar(id){
 		}
 	}
 	getPhotos(friendsToSearch);	
+	
 }
 
 function displayPhotos(photoLinkArray){
@@ -43,6 +51,11 @@ function displayPhotos(photoLinkArray){
 	if ($("#container").width() < $(window).width()){
 		$("#container").width($(window).width());
 	}
+	
+	if (photoLinkArray.length == 0){
+		displayTitle();
+	}
+	
 	removeWheel();
 }
 
