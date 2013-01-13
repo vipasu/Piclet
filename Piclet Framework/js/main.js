@@ -32,8 +32,16 @@ function displayUser(){
 		friendsToSearch.push(name);
 		//getPhotos(friendsToSearch);
 	}
+	
 }
 
+for (var i=0; i < photoLinkArray.length; i++) {
+      var img = document.createElement("img");
+      img.src = photoLinkArray[i];
+      document.append(img);
+      show_image(img);
+	}
+	
 function callRemove(id){
 	
 	var friendName = getFriendName(id);
