@@ -55,18 +55,18 @@ function loadPhotos(id, isLast) {
     	console.log("Loaded " + photoArray.length + " Photos For " + getFriendName(photoArray.userId) + ".");
     	
     	if (isLast){
-    		displayPhotos();
+    		display();
     	}
     	
 	});
 };
 
-function displayPhotos(){
+function display(){
 	var important = dequeueImportant(pq);
 	console.log("Sorted Photos By Importance.");
 	var important_src = extractSrc(important);
 	console.log("Extracted Links.");
-	display(important_src);
+	displayPhotos(important_src);
 }
 
 function getPhotos(userList){
@@ -79,7 +79,7 @@ function getPhotos(userList){
 	if (userList.length > 0){
 		loadPhotos(getFriendId(userList[userList.length - 1]),true);
 	}else{
-		displayPhotos();
+		display();
 	}
 }
 
