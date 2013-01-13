@@ -5,13 +5,14 @@ function printUser()
 	//add the people
 	//clear the field
 	$('#picsearch').val("");
-	var index = $.inArray(name, getFriendNames());
+	var indexInAllFriends = $.inArray(name, getFriendNames());
+	var indexInSearchedFriends = $.inArray(name, friendsToSearch);
+	
 	//$('#tosearch').append(index);
-	if(index != -1){
+	if(indexInAllFriends != -1 && indexInSearchedFriends == -1){
 		$('#tosearch').append(name +"<br>");
+		friendsToSearch.push(name);
 	}
-	friendsToSearch.push(name);
-//	printArray();
 }
 
 function printArray(){
