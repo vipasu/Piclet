@@ -4,9 +4,21 @@ function me(){
 	return __me;
 }
 
-function loadMe( me ){
+function loadMe(me){
 	__me = me;
 	loadFriends();
+}
+
+function checkPermissions(me){
+	console.log('Checking Permissions..');
+	FB.api('/me/permissions', function(response){
+		response = response.data[0];
+		if ('user_photos' in response && response.user_photos == 1 && 'friends_photos' in response && response.friends_photos == 1 ){
+			loginSuccessful();
+		}else{
+			login();
+		}
+	});
 }
 
 function loginSuccessful(){
@@ -18,13 +30,14 @@ function loginSuccessful(){
 }
 
 function login() {
+	console.log('Logging in..');
 	FB.login(function(response) {
 		if (response.authResponse) {
 			// connected
 			loginSuccessful();
 		} else {
 			// cancelled
-			alert("Cancelled.")
+			alert("You Need To Login With Facebook In Order To Use This Site. Thanks!");
 		}
 	}, {scope: 'user_photos,friends_photos'});
 }
@@ -43,7 +56,7 @@ window.fbAsyncInit = function() {
 	FB.getLoginStatus(function(response) {
 		if (response.status === 'connected') {
 			// connected
-			loginSuccessful();
+			checkPermissions();
 		} else if (response.status === 'not_authorized') {
 			// not_authorized
 			login();
