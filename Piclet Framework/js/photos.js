@@ -19,6 +19,7 @@ window.loadPhotos = function(id) {
     function(response){
 		photos = response.data[0].fql_result_set;
 		comments = response.data[1].fql_result_set;
+    	photoArray.data = {};
     	
     	for (var i = 0; i < photos.length; i++) {
       		photoObject = photos[i];
@@ -27,11 +28,11 @@ window.loadPhotos = function(id) {
       		photoObject.like_count    = photoObject.like_info.like_count;
       		delete photoObject.comment_info;
       		delete photoObject.like_info;
-      		photoArray[photoObject.object_id] = photoObject;
+      		photoArray.data[photoObject.object_id] = photoObject;
     	}
     	
     	for (var i = 0; i < comments.length; i++){
-    		var commentOb = photoArray[comments[i].object_id].comments;
+    		var commentOb = photoArray.data[comments[i].object_id].comments;
     		commentOb[commentOb.length] = comments[i].text;
     	}
     	
