@@ -1,9 +1,9 @@
  @charset "utf-8";
 
 body { font-family: 'Lato', sans-serif; font-weight: 400;}
-#top { position: absolute; top: 20px; left: 20px; width: 350px; height: 500px; cursor: pointer;  z-index: 1; }
 body { background-color: #121212; } 
-#container { height:500px; background-color:#fff; float:left; padding:20px 0 20px 320px; position: absolute; z-index: 0; }
+#top { float:left; width: 350px; height: 500px; cursor: pointer;  z-index: 1; background-color:#fff; position:fixed clear:both}
+#container { margin-left: 100px;  width: 600000px; background-color:#f0f;  }
 #container img { margin-right:13px; }
 #container ul li { float:left; height:500px; margin-right:12px; }
 #container ul { list-style-type:none; display:inline; padding:0; }
