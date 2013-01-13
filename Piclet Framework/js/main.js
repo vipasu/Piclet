@@ -34,7 +34,10 @@ function callRemoveNavBar(id){
 			friendsToSearch.splice(i, 1);
 		}
 	}
-	getPhotos(friendsToSearch);	
+		getPhotos(friendsToSearch);	
+	if(friendsToSearch.length==0){
+		
+	}
 	
 }
 

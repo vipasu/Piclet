@@ -3,12 +3,16 @@
 #list-prof{ height: 250px; overflow-y:scroll}
 body { font-family: 'Lato', sans-serif; font-weight: 400; color:#FFFFFF; background-color: #121212; }
 #center { height: 500px; position: absolute; top:0; bottom: 0; left: 0; right: 0; margin: auto;}
-#top {  position:fixed; left; width: 300px; height: 500px;  z-index: 1; background-color:#400000; 
+#top {  position:fixed; left; width: 300px; height: 500px;  z-index: 1; background-color:#700000; 
 	-moz-border-radius-bottomright: 20px 10px;
 	border-bottom-right-radius: 30px 3px;  
 	-moz-border-top-right-radius: 40px 20px; 
-	border-top-right-radius: 300px 60px; 		
+	border-top-right-radius: 300px 60px; 
+	box-shadow:2px -2px 3px #202020 ;		
  }
+#piclify{
+	padding-top: 20px; padding-bottom: 20px;font-weight: 900; text-transform: capitalize; font-size: 40px;
+}
 #topcontent{padding: 15px;}
 #container { position: absolute; top:0; bottom: 0; left: 0; right: 0; margin: auto;  height:500px; margin-left: 400px;  width: 600000px; }
 #container img { margin-right:13px; }
@@ -17,5 +21,5 @@ body { font-family: 'Lato', sans-serif; font-weight: 400; color:#FFFFFF; backgro
 .photos{ position:relative; }
 .images { padding:0px; margin:auto;}
 #loader{ position:relative ; ; margin-left: 0px}
-#first-line { top: 200px; left: 100px; position: absolute; font-weight: 900; font-size: 100px; color:#FFFFFF }
-#second-line{ top: 300px; left: 100px; position: absolute; font-weight:400; font-size: 50px; color: #700000}
+#first-line { top: 200px; left: 50px; position: absolute; font-weight: 900; font-size: 100px; color:#FFFFFF }
+#second-line{ top: 300px; left: 50px; position: absolute; font-weight:400; font-size: 50px; color: #700000}
