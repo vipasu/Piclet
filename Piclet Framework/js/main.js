@@ -34,12 +34,15 @@ function callRemoveNavBar(id){
 function displayPhotos(photoLinkArray){
 	$(".photos").remove();
 	console.log("Number of photos received:" + photoLinkArray.length);
-	$("#container").width(10);
+	$("#container").width(960 * photoLinkArray.length);
 	for (var i=0; i < photoLinkArray.length; i++) {
       var url = photoLinkArray[i];
       var lihtml ='<li class = "photos"><img id="__image' + i + '" src="' + url + '" alt="" border="0" /></li>';
 	  $('#photoList').append(lihtml);
-	  $("#container").width($("#container").width() + document.getElementById("__image"+i).clientWidth);
+	  //$("#container").width($("#container").width() + document.getElementById("__image"+i).clientWidth + 100);
+	}
+	if ($("#container").width() < window.Width){
+		$("#container").width(window.Width);
 	}
 }
 
