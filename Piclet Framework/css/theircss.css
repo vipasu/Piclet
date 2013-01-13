@@ -11,7 +11,7 @@ body { font-family: 'Lato', sans-serif; font-weight: 400; color:#FFFFFF; backgro
 	box-shadow:2px -2px 3px #202020 ;		
  }
 #containercontent{
-	top: 200px; left: 50px; position: absolute; max-width: 805px;
+	top: 200px; left: 50px; position: absolute; max-width: 900px;
 }
 #piclify{
 	padding-top: 50px; padding-bottom: 20px;font-weight: 900; text-transform: capitalize; font-size: 40px;
