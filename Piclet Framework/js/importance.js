@@ -45,6 +45,7 @@ function importanceFactor(photoObject){
 /*
 function getLikeCount(photoObject){
     var count = 0;
+    if (photoObject.comments.data != undefined)
     for (like in photoObject.likes.data){
         count++;
     }
@@ -53,6 +54,7 @@ function getLikeCount(photoObject){
 
 function getCommentCount(photoObject){
     var count = 0;
+    if (photoObject.comments.data!= undefined)
     for (comment in photoObject.comments.data){
         count++;
     }
@@ -78,11 +80,15 @@ function ParseComment(comment){
 
 
 function importanceFactor(photoObject){
-    var weight = 0;
-    weight += getLikeCount(photoObject) + getCommentCount(photoObject);
-    for (comment in photoObject.comments.data){
-        weight += ParseComment(comment);
-    }
+    var weight = 0,
+    	commentCount = getCommentCount(photoObject),
+    	likeCount = getLikeCount(photoObject);
+    weight += LikeCount + CommentCount;
+	if (commentCount != 0){
+    	for (comment in photoObject.comments.data){
+        	weight += ParseComment(comment);
+    	}
+   	}
     return weight;
 }
 
