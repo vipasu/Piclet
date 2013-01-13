@@ -1,3 +1,6 @@
+//To set up priority queue testing
+//var pq = new buckets.PriorityQueue(compareImportance)
+//for (var key in photoArray) pq.enqueue(photoArray[key])
 function PQueueInit(){
     //buckets.PriorityQueue(compareImportance);
     return new buckets.PriorityQueue();
