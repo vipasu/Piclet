@@ -50,10 +50,12 @@ function getFriendIds(){
 }
 
 function getFriendName(id){
+	if (!(id in __idData)) return -1;
 	return __idData[id];
 }
 
 function getFriendId(name){
+	if (!(name in __friendData)) return -1;
 	return __friendData[name];
 }
 
