@@ -20,7 +20,7 @@ function ParseComment(comment){
     var positive = ["GOOD", "GREAT", "BEAUTIFUL", "HANDSOME", "SWEET", "PRETTY", ":)"]
     //var negative = ["UGLY", "BAD", "SAD", "TERRIBLE"]
     for (phrase in positive){
-        if (comment.toUpperCase().find(phrase)!=-1)
+        if (comment.toUpperCase().search(phrase)!=-1)
             bonus += 1;
     }
     /*for (phrase in negative){
@@ -28,16 +28,16 @@ function ParseComment(comment){
             bonus -= 1;
         }
     }*/
-    bonus *= (1 + Math.sqrt(comment.likes))
+    //bonus *= (1.0 + Math.sqrt(comment.likes))
     return bonus;
 }
 
 
 function importanceFactor(photoObject){
     var weight = 0;
-    weight += getLikeCount(photoObject) + getCommentCount(photoObject);
-    for (comment in photoObject.comments){
-        weight += ParseComment(comment);
+    weight += (getLikeCount(photoObject) + getCommentCount(photoObject));
+    for (index in photoObject.comments){
+        weight += ParseComment(photoObject.comments[index]);
     }
     return weight;
 }

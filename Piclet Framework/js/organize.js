@@ -19,14 +19,24 @@ function compareImportance(a, b){
 }
 
 function enqueueArray(photoArray, pq){
-    for (var key in photoArray)
-        pq.enqueue(photoArry[key]);
+    for (var key in photoArray.data)
+        pq.enqueue(photoArray.data[key]);
 }
 
 function dequeueAll(pq){
-    var temp;
+    var photos = [];
     while (!pq.isEmpty()){
-        temp =pq.dequeue();
-        console.log(temp);
+        photos[photos.length] = pq.dequeue();
     }
+    return photos;
+}
+
+function dequeueImportant(pq){
+	var photos = [];
+	while (!pq.isEmpty()){
+		var nextPhoto = pq.dequeue();
+		if (importanceFactor(nextPhoto) == 0) break;
+		photos[photos.length] = nextPhoto;
+	}
+	return photos;
 }

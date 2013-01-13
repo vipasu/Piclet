@@ -7,7 +7,6 @@ function me(){
 function loadMe( me ){
 	__me = me;
 	loadFriends();
-	loadPhotos(me.id);
 }
 
 function loginSuccessful(){

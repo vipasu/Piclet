@@ -11,7 +11,8 @@ function loadFriends() {
 		}
 		
 		setTypeahead();
-		
+		loadPhotos(me().id);
+			
 	});
 
 }
