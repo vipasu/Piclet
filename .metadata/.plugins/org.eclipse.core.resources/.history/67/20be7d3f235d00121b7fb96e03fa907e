@@ -1,0 +1,21 @@
+var friendData = {};
+
+function loadFriends() {
+	
+	FB.api('/me/friends', function(response){
+		for (var i = 0; i < response.data.length; i++){
+			
+			friendData[response.data[i].name] = response.data[i].id;
+		}
+	});
+	return friends;
+}
+
+function getFriends(){
+	friends = [];
+	friends[i] = response.data[i].name;
+}
+
+function setFriends(friends){
+	$('#picsearch').typeahead({ source : friends});	
+}

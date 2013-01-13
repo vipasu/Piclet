@@ -1,0 +1,41 @@
+/**
+ * @author Charles
+ * Gets photos (and their comments, likes, tags) from user's Facebook
+ * and puts them into a file (array?) not sure about that yet.
+ */
+
+
+//Allows access to friends photos and albums
+             
+// Get your friend's albums, string friendID comes from the search. Can I set friendID = 'me' as default somehow?
+window.getPhotos = function(userID){
+	FB.api('/' + userID + '/photos?limit=0', function(response){
+		console.log('Photos', response);
+		photoArray = [];
+		for (var i = 0; i < response.data.length; i++){
+			photoArray[i] = response.data[i];
+		}
+		return photoArray;
+	});
+};
+window.getTaggedPhotos = function(userID){
+	FB.api('/' + userID + '/photos/uploaded?limit=0', function(response){
+		console.log('Photos', response);
+		photoArray = [];
+		for (var i = 0; i < response.data.length; i++){
+			photoArray[i] = response.data[i];
+		}
+		return photoArray;
+	});
+};
+
+window.getAllPhotos = function(userID){
+	return getTaggedPhotos(userID).concat(getPhotos(userID));
+}
+
+/*
+ *      <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+ *       <script src="js/photos.js"></script>
+ *       <script src="js/friends.js"></script>
+ *		<script src="js/login.js"></script>
+ */

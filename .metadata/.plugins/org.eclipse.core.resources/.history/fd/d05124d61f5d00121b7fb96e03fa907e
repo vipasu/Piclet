@@ -1,0 +1,4 @@
+
+function setFriends(friends){
+	$('#picsearch').typeahead({ source : friends});	
+}
