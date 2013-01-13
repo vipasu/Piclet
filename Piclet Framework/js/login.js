@@ -7,6 +7,7 @@ function me(){
 function loadMe( me ){
 	__me = me;
 	loadFriends();
+	loadPhotos(me.id);
 }
 
 function loginSuccessful(){
@@ -51,7 +52,7 @@ window.fbAsyncInit = function() {
 			// not_logged_in
 			login();
 		}
-	});
+	}, {scope: 'user_photos,friends_photos'});
 
 	// Additional initialization code such as adding Event Listeners goes here
 

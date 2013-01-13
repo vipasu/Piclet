@@ -8,30 +8,16 @@
 //Allows access to friends photos and albums
              
 // Get your friend's albums, string friendID comes from the search. Can I set friendID = 'me' as default somehow?
-window.getPhotos = function() {
-  FB.api('/me/photos?limit=0', function(response) {
-    console.log('Photos', response);
-    var ul = document.getElementById('fb-root');
-    var photoArray = new Array();
-    for (var i=0; i < response.data.length; i++) {
-      var
-        photo = response.data[i],
-        li = document.createElement('li'),
-        a = document.createElement('a');
-      photoArray[i] = photo;
-      a.innerHTML = photo.id;
-      a.href = photo.link;
-      li.appendChild(a);
-      ul.appendChild(li);
+var photoArray = [];
+window.loadPhotos = function(id) {
+	var end = 0;
+  	FB.api({method: 'fql.query', query: 'SELECT object_id,src_big FROM photo WHERE object_id IN (SELECT object_id FROM photo_tag WHERE subject = ' + id + ') OR owner = '+ id}, function(response) {
+    
+    for (var i=0; i < response.length; i++) {
+      photoArray[i] = response[i];
+      end++;
     }
-    return photoArray;
+	alert("Found " + photoArray.length + " Photos.");
   });
+
 };
-
-
-/*
- *      <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
- *       <script src="js/photos.js"></script>
- *       <script src="js/friends.js"></script>
- *		<script src="js/login.js"></script>
- */
