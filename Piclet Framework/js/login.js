@@ -35,11 +35,26 @@ function login() {
 		if (response.authResponse) {
 			// connected
 			loginSuccessful();
+			hideLogin();
 		} else {
 			// cancelled
 			alert("You Need To Login With Facebook In Order To Use This Site. Thanks!");
 		}
 	}, {scope: 'user_photos,friends_photos'});
+}
+
+function updateLogin(){
+//hideLogin();
+
+}
+function displayLogin(){
+	$("#login").append('<div class="fb-login-button" scope="user_photos,friends_photos">Login With Facebook</div>');
+  	FB.XFBML.parse();
+}
+
+function hideLogin(){
+	$("#login").empty();
+	
 }
 
 window.fbAsyncInit = function() {
@@ -59,15 +74,30 @@ window.fbAsyncInit = function() {
 			checkPermissions();
 		} else if (response.status === 'not_authorized') {
 			// not_authorized
-			login();
+			//login();
+			displayLogin();
 		} else {
 			// not_logged_in
-			login();
+			displayLogin();
 		}
-	}, {scope: 'user_photos,friends_photos'});
+	});
 
 	// Additional initialization code such as adding Event Listeners goes here
-
+	FB.Event.subscribe('auth.authResponseChange', function(response) {
+		console.log("Auth Response Changed.");
+		if (response.status === 'connected') {
+			// connected
+			checkPermissions();
+			hideLogin();
+		} else if (response.status === 'not_authorized') {
+			// not_authorized
+			//login();
+			displayLogin();
+		} else {
+			// not_logged_in
+			displayLogin();
+		}
+	});
 };
 
 // Load the SDK's source Asynchronously

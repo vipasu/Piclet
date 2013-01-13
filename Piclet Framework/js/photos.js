@@ -40,6 +40,7 @@ function loadPhotos(id, isLast) {
     	/*"query2" :
     		"SELECT object_id,text FROM comment WHERE object_id IN (SELECT object_id FROM #query1)"*/}}, 
     function(response){
+    	if ("data" in response){
 		photos = response.data[0].fql_result_set;
 		//comments = response.data[1].fql_result_set;
  		photoArray = {};
@@ -66,6 +67,8 @@ function loadPhotos(id, isLast) {
 		enqueueArray(photoArray, pq);
 		photoData.users[id] = photoArray;
     	console.log("Loaded " + photoArray.length + " Photos For " + getFriendName(photoArray.userId) + ".");
+    	
+    	}
     	
     	__countdown--;
     	
