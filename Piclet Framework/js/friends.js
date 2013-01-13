@@ -68,6 +68,6 @@ function setTypeahead(){
 function profilePicURL(id){
     var url ="https://graph.facebook.com/";
     url += id;
-    url += "/picture?type=small";
+    url += "/picture?type=square";
     return url;
 }
