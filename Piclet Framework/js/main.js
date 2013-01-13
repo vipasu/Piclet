@@ -37,7 +37,7 @@ function displayPhotos(photoLinkArray){
 	$("#container").width(960 * photoLinkArray.length);
 	for (var i=0; i < photoLinkArray.length; i++) {
       var url = photoLinkArray[i];
-      var lihtml ='<li class = "photos"><img id="__image' + i + '" src="' + url + '" alt="" border="0" /></li>';
+      var lihtml ='<li class = "photos" ><img id="__image' + i + '" src="' + url + '" alt="" style= "max-height:500px" border="0" /></li>';
 	  $('#photoList').append(lihtml);
 	  //$("#container").width($("#container").width() + document.getElementById("__image"+i).clientWidth + 100);
 	}
