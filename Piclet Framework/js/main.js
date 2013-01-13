@@ -8,12 +8,19 @@ function printUser()
 	var indexInAllFriends = $.inArray(name, getFriendNames());
 	var indexInSearchedFriends = $.inArray(name, friendsToSearch);
 	
-	//$('#tosearch').append(index);
 	if(indexInAllFriends != -1 && indexInSearchedFriends == -1){
-		$('#tosearch').append(name +"<br>");
+		var lihtml = "<li onclick= \"callRemove(this.id)\" class = \"removable\" id=\"" + name + "\">"+ name + "</li>";
+		$('#list').append(lihtml);
 		friendsToSearch.push(name);
 	}
 }
+
+function callRemove(id){
+	var name = '#' + id;
+	alert(name);
+	$(".removable").remove();	
+}
+
 
 function printArray(){
 	for(var s in friendsToSearch){
