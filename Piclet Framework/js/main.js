@@ -36,7 +36,7 @@ function displayPhotos(photoLinkArray){
 	console.log("Number of photos received:" + photoLinkArray.length);
 	for (var i=0; i < photoLinkArray.length; i++) {
       var url = photoLinkArray[i];
-      var lihtml ='<li class = "photos"><img src="' + url + '" alt="" border="0" /></li>';
+      var lihtml ='<li><img class="photos" style="max-height: 500px"src="' + url + '" alt="" border="0" /></li>';  
       //console.log(lihtml);
 	$('#photoList').append(lihtml);
 	}
