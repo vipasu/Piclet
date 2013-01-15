@@ -1,27 +1,41 @@
-var __me;
+/**
+ * Functions to login to Facebook and check for appropriate app permissions.
+ */
 
-function me(){
+var __me;
+function me() {
 	return __me;
 }
 
-function loadMe(me){
+function loadMe(me) {
 	__me = me;
 	loadFriends();
 }
 
-function checkPermissions(me){
+function displayLogin() {
+	$("#login").append('<div class="fb-login-button" show-faces="true" scope="user_photos,friends_photos">Login With Facebook</div>');
+	FB.XFBML.parse();
+	$("#picsearch").addClass("uneditable-input");
+}
+
+function hideLogin() {
+	$("#login").empty();
+	$("#picsearch").removeClass("uneditable-input");
+}
+
+function checkPermissions(me) {
 	console.log('Checking Permissions..');
-	FB.api('/me/permissions', function(response){
+	FB.api('/me/permissions', function(response) {
 		response = response.data[0];
-		if ('user_photos' in response && response.user_photos == 1 && 'friends_photos' in response && response.friends_photos == 1 ){
+		if ('user_photos' in response && response.user_photos == 1 && 'friends_photos' in response && response.friends_photos == 1) {
 			loginSuccessful();
-		}else{
+		} else {
 			login();
 		}
 	});
 }
 
-function loginSuccessful(){
+function loginSuccessful() {
 	console.log('Welcome!  Fetching your information.... ');
 	FB.api('/me', function(response) {
 		console.log('Good to see you, ' + response.name + '.');
@@ -29,37 +43,11 @@ function loginSuccessful(){
 	});
 }
 
-/*function login() {
-	console.log('Logging in..');
-	FB.login(function(response) {
-		if (response.authResponse) {
-			// connected
-			loginSuccessful();
-			hideLogin();
-		} else {
-			// cancelled
-			alert("You Need To Login With Facebook In Order To Use This Site. Thanks!");
-		}
-	}, {scope: 'user_photos,friends_photos'});
-}*/
-
-
-function displayLogin(){
-	$("#login").append('<div class="fb-login-button" scope="user_photos,friends_photos">Login With Facebook</div>');
-  	FB.XFBML.parse();
-  	$("#picsearch").addClass("uneditable-input");
-}
-
-function hideLogin(){
-	$("#login").empty();
-	$("#picsearch").removeClass("uneditable-input");
-}
-
 window.fbAsyncInit = function() {
 	// init the FB JS SDK
 	FB.init({
-		appId : '574102942618712', // App ID from the App Dashboard
-		channelUrl : '//127.0.0.1:8020/Piclet/channel.html', // Channel File for x-domain communication
+		appId : '438015436271761', // App ID from the App Dashboard
+		channelUrl : 'http://127.0.0.1:8020/piclet_test/channel.html', // Channel File for x-domain communication
 		status : true, // check the login status upon init?
 		cookie : true, // set sessions cookies to allow your server to access the session?
 		xfbml : true // parse XFBML tags on this page?
@@ -70,9 +58,9 @@ window.fbAsyncInit = function() {
 		if (response.status === 'connected') {
 			// connected
 			checkPermissions();
+			hideLogin();
 		} else if (response.status === 'not_authorized') {
 			// not_authorized
-			//login();
 			displayLogin();
 		} else {
 			// not_logged_in

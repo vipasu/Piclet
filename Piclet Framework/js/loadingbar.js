@@ -1,7 +1,6 @@
 /**
- * Creates a wheel icon that indicates the page is loading.
+ * Creates a wheel icon that indicates photos are being loaded.
  */
-
 
 function loadWheel() {
      var img = '<img id="loader" src="ajax-loader.gif"/>';

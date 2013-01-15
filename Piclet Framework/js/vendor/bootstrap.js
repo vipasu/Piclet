@@ -1813,12 +1813,12 @@
 
         case 38: // up arrow
           e.preventDefault()
-          this.prev()
+          if (e.type=='keydown') this.prev()
           break
 
         case 40: // down arrow
           e.preventDefault()
-          this.next()
+          if (e.type=='keydown') this.next()
           break
       }
 

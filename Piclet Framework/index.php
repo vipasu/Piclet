@@ -1,0 +1,1 @@
+<?php redirect("https://piclet.herokuapp.com/index.html") ?>
